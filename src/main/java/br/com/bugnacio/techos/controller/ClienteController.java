@@ -7,13 +7,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+<<<<<<< HEAD
 import br.com.bugnacio.techos.repository.ClienteRepository;
 
+=======
+>>>>>>> 15369af81235996395a2348333b313adb6b2753e
 // @Controller: bean do Spring, a recepcao dos pedidos de clientes.
 @Controller
 // @RequestMapping na classe: o comeco do endereco para TODOS os metodos daqui.
 @RequestMapping("/clientes")
 public class ClienteController {
+<<<<<<< HEAD
     // o controller precisa do repository para acessar o banco de dados.
     private  final ClienteRepository repo;
 
@@ -36,4 +40,21 @@ public class ClienteController {
         // Abre: src/main/resources/templates/clientes/lista.html
         return "clientes/lista";
     }
+=======
+
+    // @GetMapping vazio = o proprio "/clientes".
+    // Endereco completo: http://localhost:8080/clientes
+    @GetMapping
+    public String listar(Model model) {
+
+        // A tela clientes/lista espera uma lista chamada "clientes".
+        // Ainda nao temos banco, entao mandamos uma lista VAZIA (List.of()).
+        // A tela mostra o "estado vazio". Na aula 5 essa lista vem do banco.
+        model.addAttribute("clientes", List.of());
+
+        // SEM @ResponseBody: o texto devolvido e o nome da tela.
+        // Abre: src/main/resources/templates/clientes/lista.html
+        return "clientes/lista";
+    }
+>>>>>>> 15369af81235996395a2348333b313adb6b2753e
 }
